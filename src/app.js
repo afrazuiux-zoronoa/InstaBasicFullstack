@@ -12,14 +12,13 @@ const cors = require("cors");
 // Middlewares
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: true,
     credentials: true,
   }),
 );
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
-
 
 // Routes
 app.use("/api/auth", authRouter);
