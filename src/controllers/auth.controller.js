@@ -111,7 +111,6 @@ async function loginController(req, res) {
 async function getMeController(req, res) {
   try {
     const user = await userModel.findById(req.user.id);
-    res.set("Cache-Control", "no-Store");
     res.status(200).json({
       username: user.username,
       email: user.email,
