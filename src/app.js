@@ -8,6 +8,7 @@ const authRouter = require("./routes/auth.routes");
 const postRouter = require("./routes/post.routes");
 const followRouter = require("./routes/user.routes");
 const cors = require("cors");
+const path = require("path");
 
 // Middlewares
 app.use(
@@ -24,5 +25,9 @@ app.use(express.static("public"));
 app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/users", followRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("public/index.html"));
+});
 
 module.exports = app;
