@@ -26,7 +26,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/users", followRouter);
 
-app.get("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.resolve("public/index.html"));
 });
 
